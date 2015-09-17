@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/franpham/Behavior-Driven-Shopping-List#readme",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1"
+    "chai": "^3.2.0",
+    "mocha": "^2.3.2"
   }
 }
