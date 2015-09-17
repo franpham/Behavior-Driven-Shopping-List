@@ -1,0 +1,23 @@
+{
+  "name": "behavior-driven-shopping-list",
+  "version": "1.0.0",
+  "description": "Fork and clone this project.   Goal: Create a working, single page app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franpham/Behavior-Driven-Shopping-List.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franpham/Behavior-Driven-Shopping-List/issues"
+  },
+  "homepage": "https://github.com/franpham/Behavior-Driven-Shopping-List#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1"
+  }
+}
