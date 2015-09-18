@@ -1,0 +1,8 @@
+
+.completed_true {
+  text-decoration: line-through;
+}
+
+.highlight {
+  background-color: yellow;
+}

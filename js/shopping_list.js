@@ -31,7 +31,7 @@ ShoppingList.prototype.removeItem = function(item) {
 };
 
 ShoppingList.prototype.render = function() {
-  var str = '<ul>';
+  var str = '<ul id="itemList">';
   for (var i = 0; i < this.items.length; i++) {
     str += this.items[i].render();
   }
