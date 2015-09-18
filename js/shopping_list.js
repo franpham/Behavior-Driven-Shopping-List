@@ -37,3 +37,11 @@ ShoppingList.prototype.render = function() {
   }
   return str + '</ul>';
 };
+
+ShoppingList.prototype.getIndex = function(item) {
+  for (var i = 0; i < this.items.length; i++) {
+    if (item === this.items[i])
+      return i;
+  }
+  return -1;
+};

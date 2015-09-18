@@ -14,7 +14,11 @@ ShoppingListItem.prototype.uncheck = function uncheck() {
 };
 
 ShoppingListItem.prototype.render = function render() {
-  var el = $('<div />').append($('<li />').addClass('completed_' + this.is_done).append($('<span />').text(this.name + ': ')).append($('<span />').text(this.description)));
+  var idx = shopList.getIndex(this);
+  var checkbox = $('<input />').prop('type', 'checkbox').attr('onchange', 'changeCheckedStatus(' + idx + ', this)');
+  var el = $('<div />').append($('<li />').addClass('completed_' + this.is_done)      // must use attr instead of prop for onchange;
+    .append(this.is_done ? checkbox.attr('checked', true) : checkbox)
+    .append($('<span />').text(this.name + ': ')).append($('<span />').text(this.description)));
   // create outer div since html() returns innerHTML; use prop('outerHTML') to get current element also;
   return el.html();            // el refers to the FIRST element created, <div>
 };
