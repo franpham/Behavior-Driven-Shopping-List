@@ -16,3 +16,10 @@ function changeCheckedStatus(idx, checkbox) {
     shopList.items[idx].uncheck();
   document.getElementById('content').innerHTML = shopList.render();
 }
+
+function removeItemButtonClicked(idx) {
+  if (idx < 0 || idx >= shopList.items.length)
+    return;
+  shopList.removeItem(shopList.items[idx]);
+  document.getElementById('content').innerHTML = shopList.render();
+}
