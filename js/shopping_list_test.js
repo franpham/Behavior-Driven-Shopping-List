@@ -9,7 +9,7 @@ describe('ShoppingList', function() {
   });
   it("ShoppingList should be a class", function() {
     expect(ShoppingList).to.be.a('function');
-    expect(ShoppingList.prototype).to.be.an('object');
+    expect(list).to.be.instanceof(ShoppingList);
   });
   it("ShoppingList has an items property", function() {
     expect(list).has.property('items');
@@ -27,7 +27,7 @@ describe('ShoppingList', function() {
     expect(list.items).to.have.length(1);
   });
   it("ShoppingList's addItem throws an error if the item is not a ShoppingListItem", function() {
-    expect(list.addItem(new Object())).to.throw(Error);
+    expect(list.addItem).to.throw(Error);
   });
   it("ShoppingList has a removeItem method that takes an argument", function() {
     expect(ShoppingList).respondTo('removeItem');
@@ -40,11 +40,11 @@ describe('ShoppingList', function() {
   });
   it("ShoppingList's removeItem removes the last item if no argument was given", function() {
     list.addItem(item);
-    expect(list.removeItem()).to.be.true;
+    expect(list.removeItem(null)).to.be.true;
     expect(list.items).to.have.length(0);
   });
   it("ShoppingList's removeItem throws an error if item is not a ShoppingListItem", function() {
-    expect(list.removeItem(new Object())).to.throw(Error);
+    expect(list.removeItem).to.throw(Error);
   });
   it("ShoppingList has a render method that returns a HTML list of each of the items", function() {
     list.addItem(item);
@@ -61,7 +61,7 @@ describe('ShoppingListItem', function() {
   });
   it("ShoppingListItem should be a class", function() {
     expect(ShoppingListItem).to.be.a('function');
-    expect(ShoppingListItem.prototype).to.be.an('object');
+    expect(item).to.be.instanceof(ShoppingListItem);
   });
   it("ShoppingListItem has a name property", function() {
     expect(item).has.property('name');
@@ -96,7 +96,8 @@ describe('ShoppingListItem', function() {
   });
   it("ShoppingListItem render method returns HTML with the item's name and description", function() {
     var str = item.render();
-    expect(str).to.have.string($('<li />').addClass('completed_' + item.is_done).toString());
-    expect(str).to.have.string($('<span />').text(item.name).append($('<span />').text(item.description)).toString());
+    expect(str).to.equal('<li class="completed_false"><span>' + item.name + '</span><span>' + item.description + '</span></li>');
+    // expect(str).to.have.string($('<li />').addClass('completed_' + item.is_done).after($('<span />').text(item.name)).after($('<span />').text(item.description)).prop('outerHTML'));
+    // expect(str).to.have.string($('<span />').text(item.name).after($('<span />').text(item.description)).prop('outerHTML'));
   });
 });

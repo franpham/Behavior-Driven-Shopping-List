@@ -19,9 +19,9 @@ ShoppingList.prototype.removeItem = function(item) {
     else
       return false;
   } else if (item instanceof ShoppingListItem) {
-    var index = list.indexOf(item);
+    var index = this.items.indexOf(item);
     if (index >= 0)
-      list.splice(index, 1);
+      this.items.splice(index, 1);
     else
       return false;
   } else {
