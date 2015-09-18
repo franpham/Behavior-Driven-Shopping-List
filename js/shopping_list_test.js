@@ -96,8 +96,6 @@ describe('ShoppingListItem', function() {
   });
   it("ShoppingListItem render method returns HTML with the item's name and description", function() {
     var str = item.render();
-    expect(str).to.equal('<li class="completed_false"><span>' + item.name + '</span><span>' + item.description + '</span></li>');
-    // expect(str).to.have.string($('<li />').addClass('completed_' + item.is_done).after($('<span />').text(item.name)).after($('<span />').text(item.description)).prop('outerHTML'));
-    // expect(str).to.have.string($('<span />').text(item.name).after($('<span />').text(item.description)).prop('outerHTML'));
+    expect(str).to.equal('<li class="completed_false"><span>' + item.name + ': </span><span>' + item.description + '</span></li>');
   });
 });
