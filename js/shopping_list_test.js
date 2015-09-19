@@ -95,7 +95,7 @@ describe('ShoppingListItem', function() {
     expect(item.is_done).to.be.false;
   });
   it("ShoppingListItem render method returns HTML with the item's name and description", function() {
-    var str = item.render();
+    var str = item.render(-1);
     expect(str).to.equal('<li class="completed_false"><span>' + item.name + ': </span><span>' + item.description + '</span></li>');
   });
 });

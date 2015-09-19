@@ -6,7 +6,7 @@ function ShoppingList() {
 ShoppingList.prototype.addItem = function(item) {
   if (item instanceof ShoppingListItem) {
     this.items.push(item);
-    return true;
+    return this.items.length;
   } else {
     throw new Error('wrong item type');
   }
@@ -31,17 +31,10 @@ ShoppingList.prototype.removeItem = function(item) {
 };
 
 ShoppingList.prototype.render = function() {
-  var str = '<ul id="itemList">';
+  var str = '';       // '<ul>';
   for (var i = 0; i < this.items.length; i++) {
-    str += this.items[i].render();
+    str += this.items[i].render(i);
   }
-  return str + '</ul>';
-};
-
-ShoppingList.prototype.getIndex = function(item) {
-  for (var i = 0; i < this.items.length; i++) {
-    if (item === this.items[i])
-      return i;
-  }
-  return -1;
+  return str;         // + '</ul>';
+  // original solution renders the entire list; jQuery version appends new items to <ul> list in index.html;
 };

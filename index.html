@@ -10,12 +10,15 @@
   <script type="text/javascript" src="js/shopping_list_item.js"></script>
   <script type="text/javascript" src="js/shopping_list.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
-  <h3>Shopping List:</h3>
-  <div id="content"></div>
-  <form>
-    <div>Name: <input type="text" id="title" /></div>
-    <div>Description: <input type="text" id="description" /></div><!-- MUST return false, else the form will cause page to refresh -->
-    <button id="add_shopping_list_item_button" onclick="add_to_list(); return false;" style="font-size: 1em;">Add to List</button>
+  <h3 class="spacing">Shopping List:</h3>
+  <div id="content">
+    <ul id="itemList"></ul>
+  </div>
+  <form class="spacing">
+    <div class="spacing">Name: <input type="text" id="title" /></div>
+    <div class="spacing">Description: <input type="text" id="description" /></div>
+    <!-- MUST return false, else the form will cause page to refresh -->
+    <button class="spacing" id="add_item_button" onclick="add_to_list(); return false;" style="font-size: 1em;">Add to List</button>
   </form>
 </body>
 </html>
