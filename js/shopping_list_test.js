@@ -23,7 +23,7 @@ describe('ShoppingList', function() {
     expect(ShoppingList.prototype.addItem).to.have.length(1);
   });
   it("ShoppingList's addItem puts a ShoppingListItem in items Array", function() {
-    expect(list.addItem(item)).to.be.true;
+    expect(list.addItem(item)).to.equal(0);
     expect(list.items).to.have.length(1);
   });
   it("ShoppingList's addItem throws an error if the item is not a ShoppingListItem", function() {
@@ -47,10 +47,10 @@ describe('ShoppingList', function() {
     expect(list.removeItem).to.throw(Error);
   });
   it("ShoppingList has a render method that returns a HTML list of each of the items", function() {
-    list.addItem(item);
-    var str = list.render();
-    expect(str).to.have.string('<ul><li');
-    expect(str).to.have.string('/li></ul>');
+    var idx = list.addItem(item);
+    var str = list.render(idx);
+    expect(str).to.have.string('<li id="item0" class="completed_false"><input type="checkbox"><span>'
+      + item.name + ': </span><span>' + item.description + '</span>');
   });
 });
 
@@ -95,7 +95,8 @@ describe('ShoppingListItem', function() {
     expect(item.is_done).to.be.false;
   });
   it("ShoppingListItem render method returns HTML with the item's name and description", function() {
-    var str = item.render(-1);
-    expect(str).to.equal('<li class="completed_false"><span>' + item.name + ': </span><span>' + item.description + '</span></li>');
+    var str = item.render(0);
+    expect(str).to.have.string('<li id="item0" class="completed_false"><input type="checkbox"><span>'
+      + item.name + ': </span><span>' + item.description + '</span>');
   });
 });

@@ -6,7 +6,7 @@ function ShoppingList() {
 ShoppingList.prototype.addItem = function(item) {
   if (item instanceof ShoppingListItem) {
     this.items.push(item);
-    return this.items.length;
+    return this.items.length - 1;
   } else {
     throw new Error('wrong item type');
   }
